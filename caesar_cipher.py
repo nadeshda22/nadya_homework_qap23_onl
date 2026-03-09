@@ -1,17 +1,16 @@
-alfavit_RU =  'АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ'
-alfavit_EN = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+alfavit_RU = "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ"
+alfavit_EN = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
 
 def encrypt():
 
-    lang = input('Введите язык: ')
-    step = int(input('Введите шаг:'))
-    message = input('Введите сообщение для шифровки:').upper()
-    result = ''
+    lang = input("Введите язык: ")
+    step = int(input("Введите шаг:"))
+    message = input("Введите сообщение для шифровки:").upper()
+    result = ""
 
-    if lang.lower() in ['ru', 'русский']:
-
+    if lang.lower() in ["ru", "русский"]:
         for i in message:
-
             place = alfavit_RU.find(i)
             new_place = (place + step) % len(alfavit_RU)
 
@@ -20,7 +19,7 @@ def encrypt():
             else:
                 result += i
 
-    elif lang.lower() in ['en', 'english', 'английский']:
+    elif lang.lower() in ["en", "english", "английский"]:
         for i in message:
             place = alfavit_EN.find(i)
             new_place = (place + step) % len(alfavit_EN)
@@ -31,18 +30,19 @@ def encrypt():
                 result += i
 
     else:
-        print('Неверно указан язык!')
+        print("Неверно указан язык!")
 
     print(result)
 
+
 def decrypt():
 
-    lang = input('Введите язык: ')
-    step = int(input('Введите шаг:'))
-    message = input('Введите сообщение для дешифровки:').upper()
-    result = ''
+    lang = input("Введите язык: ")
+    step = int(input("Введите шаг:"))
+    message = input("Введите сообщение для дешифровки:").upper()
+    result = ""
 
-    if lang.lower() in ['ru', 'русский']:
+    if lang.lower() in ["ru", "русский"]:
         for i in message:
             place = alfavit_RU.find(i)
             new_place = (place - step) % len(alfavit_RU)
@@ -52,7 +52,7 @@ def decrypt():
             else:
                 result += i
 
-    elif lang.lower() in ['en', 'english', 'английский']:
+    elif lang.lower() in ["en", "english", "английский"]:
         for i in message:
             place = alfavit_EN.find(i)
             new_place = (place - step) % len(alfavit_EN)
@@ -62,15 +62,16 @@ def decrypt():
             else:
                 result += i
     else:
-        print('Неверно указан язык!')
+        print("Неверно указан язык!")
 
     print(result)
 
+
 while True:
-    action = input('Выберите действие (1 - шифровка, 2 - расшифровка, 0 - выход): ')
-    if action == '1':
+    action = input("Выберите действие (1 - шифровка, 2 - расшифровка, 0 - выход): ")
+    if action == "1":
         encrypt()
-    elif action == '2':
+    elif action == "2":
         decrypt()
-    elif action == '0':
+    elif action == "0":
         break
