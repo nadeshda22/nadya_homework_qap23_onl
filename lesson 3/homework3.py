@@ -1,3 +1,5 @@
+from collections import Counter
+
 print("Привести к целому типу -1.6, 2.99")
 number1 = 1.6
 number2 = 2.99
@@ -81,8 +83,6 @@ print(text[1], text[3:16:3])
 print("-" * 40)
 
 print("Вывести уникальный элемент")
-
-from collections import Counter
 
 set = [1, 5, 2, 9, 2, 9, 1]
 counts = Counter(set)
