@@ -10,7 +10,7 @@ print("-" * 40)
 
 # 2. Даны три целых числа. Найти количество положительных чисел в исходном наборе.
 count = 0
-for i in range(3):
+for _ in range(3):
     number = int(input("Введите число: "))
     if number > 0:
         count += 1
@@ -30,6 +30,10 @@ print("-" * 40)
 gap_1 = int(input("Введите начала интервала: "))
 gap_2 = int(input("Введите конец интервала: "))
 summary = 0
+
+if gap_1 > gap_2:
+    print("Неверный интервал")
+
 for i in range(gap_1, gap_2):
     summary += i
 print(summary)
@@ -94,10 +98,10 @@ while summ != 1:
     for i in range(len(number)):
         summary += int(number[i]) ** 2
     number = str(summary)
-    seen_numbers.add(summary)
     if summary in seen_numbers:
         print("Число НЕ счастливое")
         break
+    seen_numbers.add(summary)
     summ = summary
     summary = 0
 else:
