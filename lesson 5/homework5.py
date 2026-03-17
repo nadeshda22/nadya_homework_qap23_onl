@@ -1,6 +1,5 @@
 import math_utils
 
-
 """1. Напиши код который выведет таблицу умножения до 10 на N (введенное с клавиатуры) в таком формате 3 | 6 | 9 | 12 | 15 | 18 | 21 | 24 | 27"""
 
 number = int(input("Введите цифру для таблицы умножения: "))
@@ -26,10 +25,19 @@ rate = 3.2
 
 
 def convert_in_blr(prices):
+    """
+    Конвертирует цену из долларов в рубли по заданному курсу.
+
+    Args:
+        prices (float): Цена в долларах
+
+    Returns:
+        float: Цена в рублях, округленная до целого числа
+    """
     return round(prices * rate)
 
 
-"""Почему без функции round  вывод странный? {'хлеб': 4.800000000000001, 'молоко': 6.4, 'кофе': 25.6}"""
+"""Почему без функции round вывод странный? {'хлеб': 4.800000000000001, 'молоко': 6.4, 'кофе': 25.6}"""
 
 prices_blr = list(map(convert_in_blr, prices_usd))
 items_dict = dict(zip(items, prices_blr))
@@ -41,6 +49,16 @@ print(items_dict)
 
 
 def fizzbuzz(number):
+    """
+    Возвращает 'Fizz', 'Buzz', 'FizzBuzz' или число в виде строки в зависимости от делимости.
+
+    Args:
+        number (int): Проверяемое число
+
+    Returns:
+        str: 'Fizz' если делится на 3, 'Buzz' если делится на 5,
+             'FizzBuzz' если делится на 3 и 5, иначе число в виде строки
+    """
     if number % 3 == 0 and number % 5 == 0:
         return "FizzBuzz"
     elif number % 3 == 0:
@@ -57,10 +75,19 @@ print(list(map(fizzbuzz, range(1, 20))))
 — минимум, максимум и среднее."""
 
 
-def my_stats(*my_stats):
-    minimum = min(my_stats)
-    maximum = max(my_stats)
-    average = sum(my_stats) / len(my_stats)
+def my_stats(*numbers):
+    """
+    Вычисляет статистические показатели для переданных чисел.
+
+    Args:
+        *numbers: Произвольное количество чисел
+
+    Returns:
+        tuple: (минимум, максимум, среднее арифметическое)
+    """
+    minimum = min(numbers)
+    maximum = max(numbers)
+    average = sum(numbers) / len(numbers)
 
     return minimum, maximum, average
 
@@ -73,6 +100,18 @@ print(f"Минимум: {min_val}, Максимум: {max_val}, Среднее: 
 
 
 def build_profile(**info):
+    """
+    Создает профиль пользователя на основе переданных данных.
+
+    Принимает произвольные именованные аргументы и добавляет к ним
+    ключ 'registered' со значением True.
+
+    Args:
+        **info: Произвольные именованные аргументы с данными пользователя
+
+    Returns:
+        dict: Словарь с данными пользователя и ключом 'registered': True
+    """
     profile = dict(info)
     profile["registered"] = True
     return profile
@@ -93,11 +132,13 @@ help(build_profile)
 is_even(n) — возвращает True/False. В main.py импортируй модуль, попроси пользователя ввести число через input, 
 примени все три функции и выведи результаты. Защити вызовы конструкцией if __name__ == "__main__"."""
 
-digits = int(input("Введите число: "))
-
 if __name__ == "__main__":
+    digits = int(input("Введите число: "))
+
     my_stats_1 = math_utils.square(digits)
     my_stats_2 = math_utils.cube(digits)
     my_stats_3 = math_utils.is_even(digits)
 
-    print(my_stats_1, my_stats_2, my_stats_3)
+    print(f"Квадрат: {my_stats_1}")
+    print(f"Куб: {my_stats_2}")
+    print(f"Четное? {my_stats_3}")
